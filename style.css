@@ -1,38 +1,60 @@
 h1{
     color: grey;
 }
+.task{
+    font-size: 25px;
+    text-decoration: underline  dotted blue;
+    color: green;
+}
 #divMoveSquare{
-    display: none;
+    width: 500px;
+    height: 400px;
+    border: 2px dashed greenyellow;
+}
+#divMoveSquare1{
     width: 500px;
     height: 400px;
     border: 2px dashed greenyellow;
 }
 #moveSquare {
-    /* display: block; */
     width: 55px;
     height: 55px;
     border: 3px solid #E8C48F;
     position: absolute;
 }
 #mouseMove{
-    display: none;
     width: 400px;
     height: 300px;
     border: 2px dashed greenyellow;
 }
-#buttonCodeDiv{
-    display: none;
-}
-#redOnClick{
-    display: none;
+.redOnClick{
+    vertical-align: middle;
     text-align: center;
     width: 100px;
     height: 100px;
     border: 2px solid rgba(99, 166, 253, 0.979);
 }
 #inputTextDiv{
-    display: none;
     font-size: 25px;
     color:  rgb(241, 50, 226);
     /* background-color: lavender; */
 }
+#targetUlDiv{
+    font-size: 20px;
+    color:  rgb(11, 90, 238);
+}
+#targetUlBtn{
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10%;
+    background-color: lightblue;
+    color: goldenrod; 
+}
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    /* width: 100%; */
+    border: 1px solid grey;} 
+/* границы ячеек первого ряда таблицы */
+th {border: 1px solid grey;}
+/* границы ячеек тела таблицы */
+td {border: 1px solid grey;}
