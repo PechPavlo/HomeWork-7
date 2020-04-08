@@ -3,7 +3,7 @@
 // task 1
 let ourElem = document.querySelector('#mouseMove');
 ourElem.addEventListener('mousemove',
- (event) => ourElem.innerHTML = 'X:' + event.clientX + ' Y:' + event.clientY);
+ (event) => ourElem.innerHTML = 'X:' + event.offsetX + ' Y:' + event.offsetY);
 
 
 // task 2
@@ -41,6 +41,7 @@ buttonCodeInput1.onkeydown = (e) => buttonCodeSpan1.innerHTML = e.key;
 // task 6
 /* Дан элемент. Сделайте так, чтобы по клику на него он красился в красный цвет, 
 но только если в момент клика нажата клавиша Ctrl. */
+
 redOnClick.onclick = (e) => {
     if (e.ctrlKey) {redOnClick.style.background = 'red'}
 };
@@ -50,7 +51,8 @@ redOnClick.onclick = (e) => {
 /* Дан элемент. Сделайте так, чтобы при клике на него
  и нажатой клавише Ctrl - в его текст записывалось '1', при нажатой клавише Alt - '2',
   а при нажатой клавише Shift - '3'. */
-redOnClick1.onclick = (e) => {
+
+  redOnClick1.onclick = (e) => {
     if (e.ctrlKey) {redOnClick1.innerHTML = '1'};
     if (e.altKey) {redOnClick1.innerHTML = '2'};
     if (e.shiftKey) {redOnClick1.innerHTML = '3'};
@@ -60,7 +62,8 @@ redOnClick1.onclick = (e) => {
 // task 8
 /* Дан инпут. В него вводится текст и нажимается клавиша Enter (ее код имеет номер 13).
  Сделайте так, чтобы по нажатию Enter введенный текст попадал в абзац под инпутом, а содержимое инпута очищалось. */
-inputText.onkeydown = (e) => {
+
+ inputText.onkeydown = (e) => {
     if(e.key == "Enter"){
         pUnderInputText.innerHTML = inputText.value;
         inputText.value = '';};
@@ -72,6 +75,7 @@ inputText.onkeydown = (e) => {
  добавляться новый li с текстом 'пункт'. Сделайте так, чтобы при клике на каждый li, ему 
  в конец добавлялся '!'. Это должно работать и для вновь добавленных li. Задачу решите
   с помощью делегирования (то есть событие должно быть навешано на ul) */
+
   targetUlDiv.style.display = "block";
   targetUl.onclick = () => {
     event.target.innerHTML = event.target.innerHTML + '!';
@@ -88,3 +92,22 @@ inputText.onkeydown = (e) => {
 //  с помощью которой можно будет добавить нового юзера в таблицу. Сделайте так, чтобы при
 //   клике на любую ячейку появлялся prompt, с помощью которого можно изменить текст ячейки.
 //    Задачу решите с помощью делегирования (то есть событие должно быть навешано на table). */
+
+tableUser.onclick = () => {
+    if (event.target.tagName == 'TD') {
+        let newTdValue = prompt('tape new value'," ");
+        event.target.innerHTML = newTdValue;
+    };
+};
+addNewUser.onclick = () => {
+    let newNameTd = document.createElement('td');
+    let newSurnameTd = document.createElement('td');
+    let newUserTableTr = document.createElement('tr');
+    newNameTd.innerHTML = nameInput.value;
+    newSurnameTd.innerHTML = surNameInput.value;
+    newUserTableTr.appendChild(newNameTd);
+    newUserTableTr.appendChild(newSurnameTd);
+    tableUser.appendChild(newUserTableTr);
+    nameInput.value = '';
+    surNameInput.value = '';
+}
