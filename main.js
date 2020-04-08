@@ -111,3 +111,12 @@ addNewUser.onclick = () => {
     nameInput.value = '';
     surNameInput.value = '';
 }
+
+// task 11
+// Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+
+selfHideBtn.onclick = () => selfHideBtn.style.display = 'none';
+
+//task 12
+// Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id=hide;
+hideBtn.onclick = () => hide.style.display = 'none';
