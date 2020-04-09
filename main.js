@@ -120,3 +120,66 @@ selfHideBtn.onclick = () => selfHideBtn.style.display = 'none';
 //task 12
 // Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id=hide;
 hideBtn.onclick = () => hide.style.display = 'none';
+
+
+// task 13
+/* Эта задача состоит из трёх частей.
+Сделайте список, элементы которого можно выделять кликом.
+Добавьте мульти-выделение. Если клик с нажатым Ctrl (Cmd под Mac),
+ то элемент добавляется-удаляется из выделенных.
+Добавьте выделение промежутков. Если происходит клик с нажатым Shift,
+ то к выделению добавляется промежуток элементов от предыдущего кликнутого до этого. 
+ При этом не важно, какое именно действие делал предыдущий клик. */
+
+ function singleSelect(el) {
+  let  removeAllSelected = ourList.querySelectorAll("LI");
+    for (const i of removeAllSelected) {
+        i.classList.remove('selected')
+    }
+    el.classList.add('selected');
+ }
+
+ function multiSelect(el) {
+     el.classList.toggle('selected'); 
+ };
+
+ function fromToSelect(el) {
+    el.classList.add('selected');
+     let startCount = 0;
+     let fromToElem = ourList.querySelectorAll("LI");
+     for (const i of fromToElem) {
+         if (i.classList.contains('selected')){
+            if (startCount == 0) {
+                startCount = 1;
+            }else{startCount = 0}
+         }else{
+             if(startCount == 1) i.classList.add('selected')}
+     }
+ }
+ ourList.onmousedown = () => false
+
+ ourList.onclick = (event) => {
+     if (event.target.tagName != 'LI')  return;
+     if (event.ctrlKey || event.metaKey){
+         multiSelect(event.target);
+     } else {
+         if(event.shiftKey){
+             fromToSelect(event.target);
+         }else{
+             singleSelect(event.target);
+         }
+     }
+ }
+
+
+// task 14
+// Напишите код, который запрещает прокрутку страницы при помощи мыши и клавиш.
+
+scrollForbid.onclick = () => document.body.style.overflow = "hidden";
+scrollAllow.onclick = () => document.body.style.overflow = "auto";
+
+// task 15
+/* задача переместить элемент в координаты клика мышки.
+Т.е. пользователь кликает и элемент (div, например) передвигается туда. */
+
+// это тоже, что и task 2

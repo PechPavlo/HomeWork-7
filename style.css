@@ -52,9 +52,11 @@ h1{
 }
 /* внешние границы таблицы серого цвета толщиной 1px */
 table {
-    /* width: 100%; */
     border: 1px solid grey;} 
 /* границы ячеек первого ряда таблицы */
 th {border: 1px solid grey;}
 /* границы ячеек тела таблицы */
 td {border: 1px solid grey;}
+.selected{
+    background-color: greenyellow;
+}
